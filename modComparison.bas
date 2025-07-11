@@ -79,10 +79,13 @@ Sub TestAllRows_SingleMessage()
         ' Compare values case-insensitively
         If StrComp(valI, valJ, vbTextCompare) = 0 Then
             msg = msg & "Row " & i & ": Equal" & vbCrLf
+
+            ' Highlight equal rows in white
+            ws.Rows(i).Interior.Color = RGB(255, 255, 255) ' White background
         Else
             msg = msg & "Row " & i & ": Not Equal" & vbCrLf
             
-            ' Optional: Highlight mismatched rows in light red
+            ' Highlight mismatched rows in light red
             ws.Rows(i).Interior.Color = RGB(255, 204, 204) ' Light red
         End If
     Next i
